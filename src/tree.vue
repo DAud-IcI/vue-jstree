@@ -160,10 +160,12 @@
           if (oriParent[0].loading) {
             this.async(oriNode, (data) => {
               if (data.length > 0) {
-                for (let i in data) {
-                  data[i].children = [self.initializeLoading()]
-                  var dataItem = self.initializeDataItem(data[i])
-                  self.$set(oriParent, i, dataItem)
+                for (let i in data)
+                {
+                  //console.log(data[i]);
+                  data[i].children = data[i].children === false ? [] : [self.initializeLoading()];
+                  let dataItem = self.initializeDataItem(data[i]);
+                  self.$set(oriParent, i, dataItem);
                 }
               } else {
                 oriNode.model.children = []
