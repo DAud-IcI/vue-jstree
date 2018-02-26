@@ -104,12 +104,14 @@
         ]
       },
       anchorClasses () {
-        return [
-          {'tree-anchor': true},
-          {'tree-disabled': this.model.disabled},
-          {'tree-selected': this.model.selected},
-          {'tree-hovered': this.isHover}
-        ]
+        return this.addClasses(
+          [
+            {'tree-anchor': true},
+            {'tree-disabled': this.model.disabled},
+            {'tree-selected': this.model.selected},
+            {'tree-hovered': this.isHover},
+          ],
+          this.model.klass);
       },
       wholeRowClasses () {
         return [
@@ -184,7 +186,21 @@
       handleItemDrop (e, oriNode, oriItem) {
         this.$el.style.backgroundColor = "inherit"
         this.onItemDrop(e, oriNode, oriItem)
-      }
+      },
+      addClasses(arr, props)
+      {
+        if (!arr) return {};
+        if (!props) return arr;
+        
+        if (typeof(props) === 'string')
+          props = props.trim().split(' ').filter(x => x.length > 0);
+
+        props
+          .map(x => { let o = {}; o[x] = true; return o })
+          .forEach(o => arr.push(o));
+
+        return arr;
+      },
     },
     mounted () {
       this.handleSetGroupMaxHeight()
