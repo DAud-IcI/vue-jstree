@@ -1,6 +1,7 @@
 /**
  * Created by virus_zhh on 2017/9/29.
  */
+import "babel-polyfill";
 import VJstree from './tree.vue'
 
 VJstree.install = function(Vue){

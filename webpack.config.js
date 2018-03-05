@@ -3,7 +3,7 @@ var webpack = require('webpack')
 
 module.exports = {
   //entry: './main.js',
-  entry: './src/index.js',
+  entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
     //publicPath: '/dist/',
@@ -27,7 +27,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        options: {
+            presets: ['env']
+        }
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
