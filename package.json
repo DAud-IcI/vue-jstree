@@ -1,6 +1,6 @@
 {
   "name": "vue-jstree",
-  "version": "1.0.10",
+  "version": "2.1.6",
   "description": "a tree plugin for vue2",
   "keywords": [
     "vue2",
@@ -18,7 +18,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
-  "dependencies": { },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
